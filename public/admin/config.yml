@@ -1,0 +1,135 @@
+# Sveltia CMS 配置
+# 文档: https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: Flan-Chan495/Firefly_Flan
+  branch: master
+  # OAuth 认证服务地址（部署 Cloudflare Worker 后填入）
+  base_url: https://sveltia-cms-auth.my1711825017.workers.dev
+
+# 媒体文件配置
+media_folder: src/content/posts/images
+public_folder: ./images
+
+# 界面语言
+locale: zh_Hans
+
+# 内容集合
+collections:
+  # ── 博客文章 ──────────────────────────────────
+  - name: posts
+    label: 📝 文章
+    folder: src/content/posts
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    editor:
+      preview: false
+    sortable_fields:
+      fields: [published, title]
+    fields:
+      - name: title
+        label: 标题
+        widget: string
+
+      - name: published
+        label: 发布日期
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
+      - name: description
+        label: 摘要
+        widget: text
+        required: false
+
+      - name: tags
+        label: 标签
+        widget: list
+        required: false
+
+      - name: category
+        label: 分类
+        widget: string
+        required: false
+
+      - name: image
+        label: 封面图
+        widget: image
+        required: false
+
+      - name: slug
+        label: URL 别名
+        widget: string
+        required: false
+
+      - name: draft
+        label: 草稿
+        widget: boolean
+        default: false
+        required: false
+
+      - name: pinned
+        label: 置顶
+        widget: boolean
+        default: false
+        required: false
+
+      - name: series
+        label: 系列名称
+        widget: string
+        required: false
+
+      - name: seriesOrder
+        label: 系列排序
+        widget: number
+        required: false
+
+      - name: password
+        label: 文章密码
+        widget: string
+        required: false
+        hint: 留空则不加密
+
+      - name: passwordHint
+        label: 密码提示
+        widget: string
+        required: false
+
+      - name: body
+        label: 正文
+        widget: markdown
+
+  # ── 动态/说说 ──────────────────────────────────
+  - name: dynamic
+    label: 💬 动态
+    folder: src/content/dynamic
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}"
+    extension: md
+    editor:
+      preview: false
+    fields:
+      - name: published
+        label: 发布时间
+        widget: datetime
+        format: "YYYY-MM-DD HH:mm:ss"
+
+      - name: body
+        label: 内容
+        widget: markdown
+
+  # ── 特殊页面 ──────────────────────────────────
+  - name: spec
+    label: 📄 页面
+    folder: src/content/spec
+    create: false
+    extension: md
+    editor:
+      preview: false
+    fields:
+      - name: body
+        label: 内容
+        widget: markdown
