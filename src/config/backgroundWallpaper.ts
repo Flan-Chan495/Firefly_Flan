@@ -38,10 +38,10 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	src: {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
-		desktop: "https://t.alcy.cc/pc",
+		desktop: "https://api.yimian.xyz/img?type=moe&size=1920x1080",
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
-		mobile: "https://t.alcy.cc/mp",
+		mobile: "https://api.yimian.xyz/img?type=moe&size=1080x1920",
 		// 背景视频播放地址
 		// 支持单个视频路径（字符串）或多个视频循环（数组，参考上面壁纸配置）
 		// 支持远程视频URL，本地视频请放在 public/assets/videos/ 目录下
