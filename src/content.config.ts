@@ -22,7 +22,7 @@ type PostData = {
 	password: string;
 	passwordHint: string;
 	series: string;
-	seriesOrder?: number;
+	seriesOrder?: number | null;
 	prevTitle: string;
 	prevSlug: string;
 	nextTitle: string;
