@@ -10,7 +10,7 @@ backend:
 
 # 媒体文件配置
 media_folder: src/content/posts/images
-public_folder: ./images
+public_folder: /images
 
 # 界面语言
 locale: zh_Hans
