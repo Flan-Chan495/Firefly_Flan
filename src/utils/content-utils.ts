@@ -59,11 +59,11 @@ export async function getSortedPostsList(): Promise<PostForList[]> {
 function sortBySeriesOrder(a: PostForList, b: PostForList): number {
 	const ao = a.data.seriesOrder;
 	const bo = b.data.seriesOrder;
-	if (ao !== undefined && bo !== undefined) {
+	if (ao != null && bo != null) {
 		if (ao !== bo) return ao - bo;
-	} else if (ao === undefined && bo !== undefined) {
+	} else if (ao == null && bo != null) {
 		return 1;
-	} else if (ao !== undefined && bo === undefined) {
+	} else if (ao != null && bo == null) {
 		return -1;
 	}
 	// tiebreaker: 相同序号或都未设置时，按发布日期降序、标题兜底
