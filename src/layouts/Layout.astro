@@ -103,8 +103,7 @@ if (siteConfig.post.generateOgImages && postSlug) {
 	ogImageUrl = postCoverImage; // 已由文章页算成绝对 URL
 }
 
-const favicons: Favicon[] =
-	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
+const favicons: Favicon[] = siteConfig.favicon;
 
 // const siteLang = siteConfig.lang.replace('_', '-')
 if (!lang) {

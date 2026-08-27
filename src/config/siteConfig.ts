@@ -86,7 +86,11 @@ export const siteConfig: SiteConfig = {
 
 	// Favicon 配置
 	// 如果启用了OpenGraph图片功能，数组中需要包含png格式的favicon图标
-	favicon: [],
+	favicon: [
+		{
+			src: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>",
+		}
+	],
 
 	// 导航栏配置
 	navbar: {
