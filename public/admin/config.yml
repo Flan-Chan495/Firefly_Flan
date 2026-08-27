@@ -133,3 +133,103 @@ collections:
       - name: body
         label: 内容
         widget: markdown
+
+  # ── 演示文章 ──────────────────────────────────
+  - name: demo_posts
+    label: 📚 演示文章
+    folder: _demo_posts
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    editor:
+      preview: false
+    sortable_fields:
+      fields: [published, title]
+    fields:
+      - name: title
+        label: 标题
+        widget: string
+
+      - name: published
+        label: 发布日期
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
+      - name: description
+        label: 摘要
+        widget: text
+        required: false
+
+      - name: tags
+        label: 标签
+        widget: list
+        required: false
+
+      - name: category
+        label: 分类
+        widget: string
+        required: false
+
+      - name: image
+        label: 封面图
+        widget: image
+        required: false
+
+      - name: slug
+        label: URL 别名
+        widget: string
+        required: false
+
+      - name: draft
+        label: 草稿
+        widget: boolean
+        default: false
+        required: false
+
+      - name: pinned
+        label: 置顶
+        widget: boolean
+        default: false
+        required: false
+
+      - name: series
+        label: 系列名称
+        widget: string
+        required: false
+
+      - name: seriesOrder
+        label: 系列排序
+        widget: number
+        required: false
+
+      - name: password
+        label: 文章密码
+        widget: string
+        required: false
+        hint: 留空则不加密
+
+      - name: passwordHint
+        label: 密码提示
+        widget: string
+        required: false
+
+      - name: licenseName
+        label: 许可证名称
+        widget: string
+        required: false
+
+      - name: author
+        label: 作者
+        widget: string
+        required: false
+
+      - name: sourceLink
+        label: 来源链接
+        widget: string
+        required: false
+
+      - name: body
+        label: 正文
+        widget: markdown
