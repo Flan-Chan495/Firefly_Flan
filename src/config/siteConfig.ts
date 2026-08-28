@@ -49,8 +49,7 @@ export const siteConfig: SiteConfig = {
 	site_url: "https://blog.flanchan495.cc",
 
 	// 站点描述
-	description:
-		"Blog of Flan_Chan485",
+	description: "Blog of Flan_Chan485",
 
 	// 站点关键词
 	keywords: [
@@ -89,7 +88,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			src: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>",
-		}
+		},
 	],
 
 	// 导航栏配置
