@@ -23,30 +23,12 @@ export const friendsPageConfig: FriendsPageConfig = {
 // 友链配置
 export const friendsConfig: FriendLink[] = [
 	{
-		title: "Flan_Chan495",
-		imgurl: "",
-		desc: "一緒に遊んでくれるの？",
-		siteurl: "https://blog.flanchan495.cc",
+		title: "Tom_ChickenのBlog",
+		imgurl: "https://blog.tomchicken.icu/favicon/HOSHINO_320px_pfp.webp",
+		desc: "時よ止まれ、お前は美しい",
+		siteurl: "https://blog.tomchicken.icu",
 		tags: ["Blog"],
-		weight: 10, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
-	},
-	{
-		title: "Firefly Docs",
-		imgurl: "https://docs-firefly.cuteleaf.cn/logo.png",
-		desc: "Firefly主题模板文档",
-		siteurl: "https://docs-firefly.cuteleaf.cn",
-		tags: ["Docs"],
-		weight: 9,
-		enabled: true,
-	},
-	{
-		title: "Astro",
-		imgurl: "https://avatars.githubusercontent.com/u/44914786?v=4&s=640",
-		desc: "The web framework for content-driven websites. ⭐️ Star to support our work!",
-		siteurl: "https://github.com/withastro/astro",
-		tags: ["Framework"],
-		weight: 8,
+		weight: 10,
 		enabled: true,
 	},
 ];
