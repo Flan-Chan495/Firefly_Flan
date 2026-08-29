@@ -259,7 +259,7 @@ collections:
         label: 音频文件
         widget: file
         media_folder: /src/content/posts/music
-        allow_multiple: false
+        multiple: false
 
       - name: cover
         label: 封面图
