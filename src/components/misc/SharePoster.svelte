@@ -22,7 +22,7 @@ let showModal = false;
 let posterImage: string | null = null;
 let generating = false;
 let themeColor = "#558e88"; // Default blue
-const headerTextColor = "#1f2937"; // 站点名称与 Logo 颜色
+const defaultHeaderTextColor = "#1f2937"; // 站点名称与 Logo 颜色
 
 onMount(() => {
 	// Get theme color from CSS variable
@@ -219,6 +219,21 @@ async function generatePoster() {
 		const padding = 24 * scale;
 		const logoBox = 22 * scale; // 站点 Logo 尺寸
 
+		const isDark = document.documentElement.classList.contains("dark");
+		const bgColor = isDark ? "#1e1e2e" : "#ffffff";
+		const titleColor = isDark ? "#f3f4f6" : "#111827";
+		const descColor = isDark ? "#d1d5db" : "#4b5563";
+		const dividerColor = isDark ? "#374151" : "#f3f4f6";
+		const authorColor = isDark ? "#f3f4f6" : "#1f2937";
+		const labelColor = isDark ? "#9ca3af" : "#9ca3af";
+		const headerOverlay = isDark
+			? "rgba(30, 30, 46, 0.76)"
+			: "rgba(255, 255, 255, 0.76)";
+		const dateColor = isDark
+			? "rgba(243, 244, 246, 0.68)"
+			: "rgba(31, 41, 55, 0.68)";
+		const siteTitleColor = isDark ? "#f3f4f6" : defaultHeaderTextColor;
+
 		// 1. Prepare resources
 		const qrCodeUrl = await QRCode.toDataURL(url, {
 			margin: 1,
@@ -230,7 +245,7 @@ async function generatePoster() {
 			coverImageSelector,
 		);
 		const resolvedAvatar = resolveImageSource(avatar, avatarSelector);
-		const resolvedSiteLogo = resolveSiteLogoSource(headerTextColor, logoBox);
+		const resolvedSiteLogo = resolveSiteLogoSource(siteTitleColor, logoBox);
 		const [qrImg, coverImg, avatarImg, logoImg] = await Promise.all([
 			loadImage(qrCodeUrl),
 			resolvedCoverImage
@@ -294,7 +309,7 @@ async function generatePoster() {
 
 		// 5. Draw Content
 		// Fill Background
-		ctx.fillStyle = "#ffffff";
+		ctx.fillStyle = bgColor;
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 		// Draw Decorative Circles
@@ -378,12 +393,12 @@ async function generatePoster() {
 			? `${dateObj.year}.${dateObj.month}.${dateObj.day}`
 			: "";
 
-		ctx.fillStyle = "rgba(255, 255, 255, 0.76)";
+		ctx.fillStyle = headerOverlay;
 		ctx.fillRect(0, 0, width, headerHeight);
 
 		ctx.textAlign = "right";
 		ctx.textBaseline = "middle";
-		ctx.fillStyle = "rgba(31, 41, 55, 0.68)";
+		ctx.fillStyle = dateColor;
 		ctx.font = `${11 * scale}px 'Roboto', sans-serif`;
 		const dateWidth = dateText ? ctx.measureText(dateText).width : 0;
 		if (dateText) {
@@ -391,7 +406,7 @@ async function generatePoster() {
 		}
 
 		ctx.textAlign = "left";
-		ctx.fillStyle = headerTextColor;
+		ctx.fillStyle = siteTitleColor;
 		ctx.font = `700 ${16 * scale}px 'Roboto', sans-serif`;
 
 		// 站点 Logo，效果对齐导航栏：Logo 在前，标题紧随其后
@@ -435,7 +450,7 @@ async function generatePoster() {
 		ctx.textBaseline = "top";
 		ctx.textAlign = "left";
 		ctx.font = `700 ${24 * scale}px 'Roboto', sans-serif`;
-		ctx.fillStyle = "#111827";
+		ctx.fillStyle = titleColor;
 		titleLines.forEach((line) => {
 			ctx.fillText(line, padding, drawY);
 			drawY += titleLineHeight;
@@ -445,7 +460,7 @@ async function generatePoster() {
 		// Draw Description
 		if (description) {
 			// Draw vertical line
-			ctx.fillStyle = "#e5e7eb";
+			ctx.fillStyle = dividerColor;
 			const descLineH = descHeight; // Approximate
 			// Extend the line slightly above and below the text
 			drawRoundedRect(
@@ -459,7 +474,7 @@ async function generatePoster() {
 			ctx.fill();
 
 			ctx.font = `${14 * scale}px 'Roboto', sans-serif`;
-			ctx.fillStyle = "#4b5563";
+			ctx.fillStyle = descColor;
 			const descLines = getLines(ctx, description, contentWidth - 16 * scale);
 			const maxDescLines = 6;
 
@@ -475,7 +490,7 @@ async function generatePoster() {
 		// Draw Footer Divider
 		drawY += 8 * scale; // Spacing before line
 		ctx.beginPath();
-		ctx.strokeStyle = "#f3f4f6";
+		ctx.strokeStyle = dividerColor;
 		ctx.lineWidth = 1 * scale;
 		ctx.moveTo(padding, drawY);
 		ctx.lineTo(width - padding, drawY);
@@ -530,11 +545,11 @@ async function generatePoster() {
 
 		ctx.textAlign = "left";
 		ctx.textBaseline = "top";
-		ctx.fillStyle = "#9ca3af";
+		ctx.fillStyle = labelColor;
 		ctx.font = `${12 * scale}px 'Roboto', sans-serif`;
 		ctx.fillText(i18n(I18nKey.author), authorTextX, textCenterY - 20 * scale);
 
-		ctx.fillStyle = "#1f2937";
+		ctx.fillStyle = authorColor;
 		ctx.font = `700 ${20 * scale}px 'Roboto', sans-serif`;
 		ctx.fillText(
 			fitText(ctx, author, authorMaxWidth),
@@ -569,7 +584,7 @@ async function generatePoster() {
 		// QR caption
 		ctx.textAlign = "center";
 		ctx.textBaseline = "top";
-		ctx.fillStyle = "#9ca3af";
+		ctx.fillStyle = labelColor;
 		ctx.font = `${10 * scale}px 'Roboto', sans-serif`;
 		ctx.fillText(
 			fitText(ctx, i18n(I18nKey.scanToRead), qrSize),
