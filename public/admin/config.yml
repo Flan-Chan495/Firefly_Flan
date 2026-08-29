@@ -233,3 +233,45 @@ collections:
       - name: body
         label: 正文
         widget: markdown
+
+  # ── 音源资源 ──────────────────────────────────
+  - name: music
+    label: 🎵 音源
+    folder: src/content/posts/music
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    media_folder: ""
+    public_folder: ""
+    editor:
+      preview: false
+    fields:
+      - name: title
+        label: 歌曲名称
+        widget: string
+
+      - name: artist
+        label: 艺术家
+        widget: string
+        required: false
+
+      - name: audio
+        label: 音频文件
+        widget: file
+        media_folder: /src/content/posts/music
+        allow_multiple: false
+
+      - name: cover
+        label: 封面图
+        widget: image
+        required: false
+
+      - name: lrc
+        label: 歌词文件
+        widget: file
+        required: false
+
+      - name: body
+        label: 备注
+        widget: markdown
+        required: false
