@@ -1,18 +1,16 @@
 {
-  "columnWidth": 240,
-  "albums": [
-    {
-      "id": "BlueArchive",
-      "name": "BA",
-      "description": "",
-      "location": "",
-      "date": "",
-      "tags": [
-        "BA"
-      ],
-      "password": "",
-      "passwordHint": "",
-      "cover": "/images/pc.webp"
-    }
-  ]
+	"columnWidth": 240,
+	"albums": [
+		{
+			"id": "BlueArchive",
+			"name": "BA",
+			"description": "",
+			"location": "",
+			"date": "",
+			"tags": ["BA"],
+			"password": "",
+			"passwordHint": "",
+			"cover": "/images/pc.webp"
+		}
+	]
 }
