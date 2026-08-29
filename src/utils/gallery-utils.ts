@@ -19,22 +19,25 @@ function withBase(assetPath: string): string {
 }
 
 /**
- * 扫描相册目录中的所有图片文件
+ * 扫描相册目录中的所有图片文件并合并CMS配置的照片
  */
-export function scanAlbumPhotos(albumId: string): string[] {
+export function scanAlbumPhotos(album: GalleryAlbum): string[] {
+	const albumId = album.id;
 	const dir = path.join(process.cwd(), "public", "gallery", albumId);
-	if (!fs.existsSync(dir)) return [];
-	const files = fs
-		.readdirSync(dir)
-		.filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f))
-		.sort();
-	// 将 cover.* 排到第一位
-	const coverIdx = files.findIndex((f) => /^cover\./i.test(f));
-	if (coverIdx > 0) {
-		const [coverFile] = files.splice(coverIdx, 1);
-		files.unshift(coverFile);
+	let localPhotos: string[] = [];
+	if (fs.existsSync(dir)) {
+		const files = fs
+			.readdirSync(dir)
+			.filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f))
+			.sort();
+		// 将 cover.* 排到第一位
+		const coverIdx = files.findIndex((f) => /^cover\./i.test(f));
+		if (coverIdx > 0) {
+			const [coverFile] = files.splice(coverIdx, 1);
+			files.unshift(coverFile);
+		}
+		localPhotos = files.map((f) => withBase(`/gallery/${albumId}/${f}`));
 	}
-	const localPhotos = files.map((f) => withBase(`/gallery/${albumId}/${f}`));
 
 	// 读取 urls.txt 中的远程图片 URL
 	const urlsFile = path.join(dir, "urls.txt");
@@ -47,7 +50,12 @@ export function scanAlbumPhotos(albumId: string): string[] {
 			.filter((line) => line && !line.startsWith("#"));
 	}
 
-	return [...localPhotos, ...remotePhotos];
+	// 读取 CMS 中上传的照片
+	const cmsPhotos = (album.photos || []).map((p) => withBase(p));
+
+	// 去重并返回
+	const allPhotos = [...cmsPhotos, ...localPhotos, ...remotePhotos];
+	return Array.from(new Set(allPhotos));
 }
 
 /**

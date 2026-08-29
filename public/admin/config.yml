@@ -73,6 +73,16 @@ collections:
                 media_folder: /public/gallery
                 public_folder: /gallery
                 required: false
+              - name: photos
+                label: 相册照片（可多选）
+                widget: list
+                required: false
+                field:
+                  name: photo
+                  label: 照片
+                  widget: image
+                  media_folder: /public/gallery
+                  public_folder: /gallery
 
   # ── 博客文章 ──────────────────────────────────
   - name: posts
