@@ -17,6 +17,59 @@ locale: zh_Hans
 
 # 内容集合
 collections:
+  # ── 全局配置 ──────────────────────────────────
+  - name: config
+    label: ⚙️ 全局配置
+    files:
+      - name: gallery
+        label: 🖼️ 相册设置
+        file: src/config/gallery.json
+        description: "配置站点的相册信息与画廊结构"
+        fields:
+          - name: columnWidth
+            label: 瀑布流最小列宽(px)
+            widget: number
+            default: 240
+          - name: albums
+            label: 相册列表
+            widget: list
+            fields:
+              - name: id
+                label: 相册ID（英文，对应 public/gallery/ 文件夹名）
+                widget: string
+              - name: name
+                label: 相册名称
+                widget: string
+              - name: description
+                label: 相册描述
+                widget: text
+                required: false
+              - name: location
+                label: 拍摄地点
+                widget: string
+                required: false
+              - name: date
+                label: 拍摄日期
+                widget: date
+                format: "YYYY-MM-DD"
+                required: false
+              - name: tags
+                label: 标签
+                widget: list
+                required: false
+              - name: password
+                label: 访问密码（留空则不加密）
+                widget: string
+                required: false
+              - name: passwordHint
+                label: 密码提示
+                widget: string
+                required: false
+              - name: cover
+                label: 指定封面图路径
+                widget: string
+                required: false
+
   # ── 博客文章 ──────────────────────────────────
   - name: posts
     label: 📝 文章
