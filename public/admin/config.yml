@@ -275,25 +275,3 @@ collections:
         label: 备注
         widget: markdown
         required: false
-
-  # ── 图片资源 ──────────────────────────────────
-  - name: images
-    label: 🖼️ 图片
-    folder: src/content/posts/images
-    create: true
-    slug: "{{slug}}"
-    extension: md
-    media_folder: ""
-    public_folder: ""
-    editor:
-      preview: false
-    fields:
-      - name: title
-        label: 图片备注
-        widget: string
-
-      - name: image
-        label: 图片文件
-        widget: image
-        media_folder: /src/content/posts/images
-        multiple: false
