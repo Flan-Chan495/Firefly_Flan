@@ -11,6 +11,11 @@ const autoMusicFiles = import.meta.glob(
 	"/src/content/posts/music/*.{mp3,flac,wav,ogg,m4a}",
 	{ eager: true, query: "?url", import: "default" },
 );
+const autoImageFiles = import.meta.glob(
+	"/src/content/posts/music/*.{jpg,jpeg,png,webp,gif}",
+	{ eager: true, query: "?url", import: "default" },
+);
+
 const autoPlaylist = Object.entries(autoMusicFiles).map(([path, fileUrl]) => {
 	const filename = path.split("/").pop() || "";
 	const nameWithoutExt = filename.substring(0, filename.lastIndexOf("."));
@@ -21,11 +26,18 @@ const autoPlaylist = Object.entries(autoMusicFiles).map(([path, fileUrl]) => {
 			? parts.slice(1).join(" - ").trim()
 			: nameWithoutExt.trim();
 
+	// 匹配同名封面图
+	const imagePath = Object.keys(autoImageFiles).find((imgPath) => {
+		const imgFilename = imgPath.split("/").pop() || "";
+		return imgFilename.startsWith(nameWithoutExt + ".");
+	});
+	const pic = imagePath ? (autoImageFiles[imagePath] as string) : undefined;
+
 	return {
 		name,
 		artist,
 		url: fileUrl as string,
-		pic: undefined,
+		pic,
 		lrc: undefined,
 	};
 });
