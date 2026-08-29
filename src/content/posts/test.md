@@ -20,7 +20,7 @@ password: ''
 passwordHint: ''
 ---
 
-#MoonDrop Edge2
+# MoonDrop Edge2
 
 ## 水月雨 羽翼2
 
@@ -39,7 +39,7 @@ passwordHint: ''
 
 不得不说水司产品外观依然在线，有着极强的辨识度。这次的Edge2基本延续了Edge的外观，材质非常舒服
 
->[!NOTE]
+> [!NOTE]
 > 本人没使用过Edge因此无法知晓材质上是否有变化
 
 但是外观好看却也存在一些缺点
@@ -58,7 +58,7 @@ Edge2的耳罩存在设计问题 \~\~虽然本人未遇到\~\~ 耳朵较大可�
 - 耳机充电时间: 约1.2小时
 - 耳机续航时间: 约50小时 (AAC，ANC On)
 
->[!NOTE]
+> [!NOTE]
 > 此内容来源于[官网](https://moondroplab.com/cn/products/edge2)
 
 ### 发声单元
@@ -121,7 +121,7 @@ Tom_Chiken曰：挺好
 极高的灵敏度让你脱戴耳机不用再打开设备开关音乐
 并且当你戴上时会有一定时间延迟防止还没戴好突然响起声音炸你
 
->[!NOTE]
+> [!NOTE]
 > 此功能需再MoonDrop Link连接后手动开启
 
 ## 总结
