@@ -9,8 +9,8 @@ backend:
   base_url: https://sveltia-cms-auth.my1711825017.workers.dev
 
 # 媒体文件配置
-media_folder: src/content/posts
-public_folder: ""
+media_folder: src/content/posts/images
+public_folder: /images
 
 # 界面语言
 locale: zh_Hans
@@ -24,8 +24,6 @@ collections:
     create: true
     slug: "{{slug}}"
     extension: md
-    media_folder: /src/content/posts/images
-    public_folder: /images
     editor:
       preview: false
     sortable_fields:
