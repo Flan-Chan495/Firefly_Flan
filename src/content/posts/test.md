@@ -20,7 +20,7 @@ password: ''
 passwordHint: ''
 ---
 
-# MoonDrop Edge2
+MoonDrop Edge2
 
 ## 水月雨 羽翼2
 
@@ -33,14 +33,13 @@ passwordHint: ''
 ### 外观
 
 [grid]
-![p1](https://img.flanchan495.cc/Edge2/p1.jpg)
-![p2](https://img.flanchan495.cc/Edge2/p2.jpg)
+![](https://img.flanchan495.cc/Edge2/p1.jpg)
+![](https://img.flanchan495.cc/Edge2/p2.jpg)
 [/grid]
 
 不得不说水司产品外观依然在线，有着极强的辨识度。这次的Edge2基本延续了Edge的外观，材质非常舒服
 
 >[!NOTE]
-
 > 本人没使用过Edge因此无法知晓材质上是否有变化
 
 但是外观好看却也存在一些缺点
@@ -60,7 +59,6 @@ Edge2的耳罩存在设计问题 \~\~虽然本人未遇到\~\~ 耳朵较大可�
 - 耳机续航时间: 约50小时 (AAC，ANC On)
 
 >[!NOTE]
-
 > 此内容来源于[官网](https://moondroplab.com/cn/products/edge2)
 
 ### 发声单元
@@ -73,18 +71,20 @@ Edge 2 搭载了直径为 40mm 的动圈单元
 [grid]
 ![eq](https://img.flanchan495.cc/Edge2/eq.jpg)
 [/grid]
+
 Edge2本身支持5段EQ，图中目标曲线为VDSF 5128 Demo Target Response On-Ear
 非常明显，水司在100Hz以下的频段有明显隆起来提升声音的下潜，而之后频段下降来降低轰耳感较为收敛
-
 但是！本人在听了将近一年的Kadenz后在听Edge2有着明显的轰头感，Kadenz的低频曲线恰到好处，有着极佳的质感、下潜和快速的收放，因此我还是以VDSF为目标曲线后听着舒服
 下面以Edge2原曲线，kadenz为目标曲线进行对比
+
 [grid]
-![Edge-Kadenz](https://img.flanchan495.cc/Edge2/Edge-Kadenz.jpg)
+![](https://img.flanchan495.cc/Edge2/Edge-Kadenz.jpg)
 [/grid]
+
 在频响曲线提到过木质振膜，其能提供更高的刚性和良好的内部阻尼特性来提供量感的同时，保持低频紧实且中频顺滑
 在我削减原来过高的低频后，中频依旧是水式调音，对ACG的女声自带加成，有着非常高的精致度
 高频咱暂且不论，出非特别明显的高频溢出不然咱听不出来⑨u⑨
-\~\~点名批评Kadenz佩戴赠送的清泉套\~\~
+~~点名批评Kadenz佩戴赠送的清泉套~~
 
 ### 蓝牙Bluetooth
 
@@ -95,8 +95,8 @@ Edge2本身支持5段EQ，图中目标曲线为VDSF 5128 Demo Target Response On
 
 #### 模式Mode
 
-降噪勉强够用吧，中规中矩 \~\~遇到非常嘈杂环境建议响度直接拉满\~\~
-游戏模式咱没用过，打游戏咱插线都OuO
+降噪勉强够用吧，中规中矩遇到非常嘈杂环境建议响度直接拉满
+~~游戏模式咱没用过，打游戏咱插线都OuO~~
 
 #### 增益
 
@@ -122,5 +122,4 @@ Tom_Chiken曰：挺好
 并且当你戴上时会有一定时间延迟防止还没戴好突然响起声音炸你
 
 >[!NOTE]
-
 > 此功能需再MoonDrop Link连接后手动开启
