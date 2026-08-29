@@ -50,8 +50,10 @@ collections:
                 required: false
               - name: date
                 label: 拍摄日期
-                widget: date
+                widget: datetime
                 format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
                 required: false
               - name: tags
                 label: 标签
