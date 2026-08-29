@@ -32,9 +32,15 @@ passwordHint: ''
 
 ### 外观
 
+[grid]
+![p1](https://img.flanchan495.cc/Edge2/p1.jpg)
+![p2](https://img.flanchan495.cc/Edge2/p2.jpg)
+[/grid]
+
 不得不说水司产品外观依然在线，有着极强的辨识度。这次的Edge2基本延续了Edge的外观，材质非常舒服
 
 >[!NOTE]
+
 > 本人没使用过Edge因此无法知晓材质上是否有变化
 
 但是外观好看却也存在一些缺点
@@ -54,6 +60,7 @@ Edge2的耳罩存在设计问题 \~\~虽然本人未遇到\~\~ 耳朵较大可�
 - 耳机续航时间: 约50小时 (AAC，ANC On)
 
 >[!NOTE]
+
 > 此内容来源于[官网](https://moondroplab.com/cn/products/edge2)
 
 ### 发声单元
@@ -110,4 +117,5 @@ Tom_Chiken曰：挺好
 并且当你戴上时会有一定时间延迟防止还没戴好突然响起声音炸你
 
 >[!NOTE]
+
 > 此功能需再MoonDrop Link连接后手动开启
