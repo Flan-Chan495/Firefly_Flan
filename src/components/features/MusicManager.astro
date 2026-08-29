@@ -6,7 +6,25 @@ import { url } from "@/utils/url-utils";
 
 const config = musicPlayerConfig;
 
-const localPlaylist =
+// 自动扫描目录下的音频文件
+const autoMusicFiles = import.meta.glob('/src/content/posts/music/*.{mp3,flac,wav,ogg,m4a}', { eager: true, query: '?url', import: 'default' });
+const autoPlaylist = Object.entries(autoMusicFiles).map(([path, fileUrl]) => {
+	const filename = path.split('/').pop() || '';
+	const nameWithoutExt = filename.substring(0, filename.lastIndexOf('.'));
+	const parts = nameWithoutExt.split(' - ');
+	const artist = parts.length > 1 ? parts[0].trim() : 'Unknown';
+	const name = parts.length > 1 ? parts.slice(1).join(' - ').trim() : nameWithoutExt.trim();
+
+	return {
+		name,
+		artist,
+		url: fileUrl as string,
+		pic: undefined,
+		lrc: undefined,
+	};
+});
+
+const configPlaylist =
 	config.mode === "local" && config.local?.playlist
 		? config.local.playlist.map((song) => {
 				const isFullUrl = (path: string) => /^https?:\/\//.test(path);
@@ -27,6 +45,8 @@ const localPlaylist =
 				};
 			})
 		: [];
+
+const localPlaylist = [...autoPlaylist, ...configPlaylist];
 
 const managerConfigStr = JSON.stringify({
 	mode: config.mode,
