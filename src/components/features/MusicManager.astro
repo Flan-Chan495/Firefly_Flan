@@ -29,7 +29,7 @@ const autoPlaylist = Object.entries(autoMusicFiles).map(([path, fileUrl]) => {
 	// 匹配同名封面图
 	const imagePath = Object.keys(autoImageFiles).find((imgPath) => {
 		const imgFilename = imgPath.split("/").pop() || "";
-		return imgFilename.startsWith(nameWithoutExt + ".");
+		return imgFilename.startsWith(`${nameWithoutExt}.`);
 	});
 	const pic = imagePath ? (autoImageFiles[imagePath] as string) : undefined;
 
